@@ -1,0 +1,91 @@
+Test: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+Time: 2026-01-29 20:13:21.876722
+================================================================================
+self = <tests.test_orderbook.TestOrderbook object at 0x10dad5748>, ws_client = <utils.ws_client.WebSocketClient object at 0x10dad5ef0>
+test_logger = <Logger test_book_001_subscribe_btc_depth_10[TC_BOOK_001] (DEBUG)>, save_response = <function save_response.<locals>._save at 0x10dc47d90>
+orderbook_case = {'case_id': 'TC_BOOK_001', 'channel_type': 'orderbook', 'description': '订阅订单簿数据 - BTC_USDT - 深度 10', 'expected': {'data_fields': ['bids', 'asks', 't'], 'message_count': 1, 'min_asks': 1, 'min_bids': 1, ...}, ...}
+validator = <tests.conftest.validator.<locals>.ValidatorWrapper object at 0x10df26160>
+
+    @allure.story("订阅订单簿 - BTC_USDT - 深度 10")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.asyncio
+    @pytest.mark.smoke
+    @pytest.mark.parametrize("orderbook_case", ["TC_BOOK_001"], indirect=True)
+    async def test_book_001_subscribe_btc_depth_10(
+            self,
+            ws_client,
+            test_logger,
+            save_response,
+            orderbook_case,
+            validator):
+        """TC_BOOK_001: 订阅订单簿数据 - BTC_USDT - 深度 10"""
+    
+        case = orderbook_case
+    
+        with allure.step(f"执行测试用例: {case['case_id']} - {case['description']}"):
+            test_logger.info(f"测试用例: {case['case_id']}")
+            test_logger.info(f"描述: {case['description']}")
+            test_logger.info(f"请求参数: {case['params']}")
+        # 调试信息
+        test_logger.info(f"WebSocket URL: {ws_client.ws_url}")
+        test_logger.info(f"超时时间: {ws_client.timeout}秒")
+        test_logger.info(f"连接状态: {await ws_client.is_connected()}")
+    
+        # assert ws_client.ws is not None, "WebSocket 对象不应为 None"
+        # assert not ws_client.ws.closed, "WebSocket 不应处于关闭状态"
+    
+        await WebSocketTestHelper.execute_subscribe_test(
+>           ws_client, test_logger, save_response, case, validator
+        )
+
+tests/test_orderbook.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ws_client = <utils.ws_client.WebSocketClient object at 0x10dad5ef0>, test_logger = <Logger test_book_001_subscribe_btc_depth_10[TC_BOOK_001] (DEBUG)>
+save_response = <function save_response.<locals>._save at 0x10dc47d90>
+case = {'case_id': 'TC_BOOK_001', 'channel_type': 'orderbook', 'description': '订阅订单簿数据 - BTC_USDT - 深度 10', 'expected': {'data_fields': ['bids', 'asks', 't'], 'message_count': 1, 'min_asks': 1, 'min_bids': 1, ...}, ...}
+validator = <tests.conftest.validator.<locals>.ValidatorWrapper object at 0x10df26160>
+
+    @staticmethod
+    async def execute_subscribe_test(
+            ws_client,
+            test_logger,
+            save_response,
+            case: Dict[str, Any],
+            validator
+    ):
+        """执行订阅测试的通用流程"""
+        case_id = case['case_id']
+        params = case['params']
+        expected = case.get('expected', {})
+    
+        # 构建订阅频道
+        instrument_name = params['instrument_name']
+        depth = params['depth']
+        channel = f"book.{instrument_name}.{depth}"
+    
+        with allure.step(f"1. 订阅频道: {channel}"):
+            test_logger.info("=" * 80)
+            test_logger.info(f"📢 发送订阅请求: {channel}")
+            test_logger.info("=" * 80)
+    
+            # 发送订阅请求并获取确认响应
+            subscribe_confirm = await ws_client.subscribe(
+                channels=[channel],
+                timeout=30
+            )
+    
+            assert subscribe_confirm is not None, "未收到订阅确认响应"
+    
+            test_logger.info(f"订阅确认: {subscribe_confirm}")
+    
+            # 保存订阅确认
+            if save_response:
+                save_response(
+                    case_id=case_id,
+                    step="subscribe_confirm",
+>                   data=subscribe_confirm
+                )
+E               TypeError: _save() got an unexpected keyword argument 'case_id'
+
+utils/ws_test_helpers.py:52: TypeError

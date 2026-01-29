@@ -1,0 +1,24 @@
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - Test Started: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ▶️  Starting test: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔧 初始化 WebSocket 客户端
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - WebSocket URL: wss://stream.crypto.com/exchange/v1/market
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 超时设置: 30秒
+2026-01-29 21:03:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 正在连接 WebSocket...
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - ================================================================================
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - ❌ WebSocket 连接失败
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - ================================================================================
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 可能的原因:
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 1. 网络连接问题
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 2. WebSocket URL 不正确
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 3. 防火墙阻止连接
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 4. 服务器不可用
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - ================================================================================
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - 当前 URL: wss://stream.crypto.com/exchange/v1/market
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - ERROR - ================================================================================
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - Test Finished: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-29 21:03:16 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================

@@ -1,0 +1,23 @@
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - Test Started: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ▶️  Starting test: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔧 初始化 WebSocket 客户端
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - WebSocket URL: wss://uat-stream.3ona.co/exchange/v1/market
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 超时设置: 30秒
+2026-01-29 20:41:06 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 正在连接 WebSocket...
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ WebSocket 连接成功
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 连接状态验证: True
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 测试用例: TC_BOOK_001
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 描述: 订阅订单簿数据 - BTC_USDT - 深度 10
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 请求参数: {'instrument_name': 'BTCUSD-PERP', 'depth': 10}
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - WebSocket URL: wss://uat-stream.3ona.co/exchange/v1/market
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 超时时间: 30秒
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 连接状态: True
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📢 发送订阅请求: book.BTCUSD-PERP.10
+2026-01-29 20:41:08 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================

@@ -1,0 +1,79 @@
+Test: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+Time: 2026-01-29 18:02:19.851950
+================================================================================
+self = <tests.test_orderbook.TestOrderbook object at 0x10d8e3a20>, ws_client = <utils.ws_client.WebSocketClient object at 0x10d916278>
+test_logger = <Logger test_book_001_subscribe_btc_depth_10[TC_BOOK_001] (DEBUG)>, save_response = <function save_response.<locals>._save at 0x10d4d3d08>
+orderbook_case = {'case_id': 'TC_BOOK_001', 'channel_type': 'orderbook', 'description': '订阅订单簿数据 - BTC_USDT - 深度 10', 'expected': {'data_fields': ['bids', 'asks', 't'], 'message_count': 1, 'min_asks': 1, 'min_bids': 1, ...}, ...}
+validator = <tests.conftest.validator.<locals>.ValidatorWrapper object at 0x10d7ac438>
+
+    @allure.story("订阅订单簿 - BTC_USDT - 深度 10")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.asyncio
+    @pytest.mark.smoke
+    @pytest.mark.parametrize("orderbook_case", ["TC_BOOK_001"], indirect=True)
+    async def test_book_001_subscribe_btc_depth_10(
+            self,
+            ws_client,
+            test_logger,
+            save_response,
+            orderbook_case,
+            validator):
+        """TC_BOOK_001: 订阅订单簿数据 - BTC_USDT - 深度 10"""
+    
+        case = orderbook_case
+    
+        with allure.step(f"执行测试用例: {case['case_id']} - {case['description']}"):
+            test_logger.info(f"测试用例: {case['case_id']}")
+            test_logger.info(f"描述: {case['description']}")
+            test_logger.info(f"请求参数: {case['params']}")
+        # 调试信息
+        test_logger.info(f"WebSocket URL: {ws_client.ws_url}")
+        test_logger.info(f"超时时间: {ws_client.timeout}秒")
+        test_logger.info(f"连接状态: {await ws_client.is_connected()}")
+    
+        # assert ws_client.ws is not None, "WebSocket 对象不应为 None"
+        # assert not ws_client.ws.closed, "WebSocket 不应处于关闭状态"
+    
+        await WebSocketTestHelper.execute_subscribe_test(
+>           ws_client, test_logger, save_response, case, validator
+        )
+
+tests/test_orderbook.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utils/ws_test_helpers.py:50: in execute_subscribe_test
+    assert validator.validate_subscription_response(subscribe_response), \
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <utils.ws_validators.WebSocketValidator object at 0x10d7ac470>, response = {'code': 0, 'id': 1, 'result': {'channels': ['book.BTCUSD-PERP.10']}}
+expected_channels = None
+
+    def validate_subscription_response(
+            self,
+            response: Dict[str, Any],
+            expected_channels: Optional[List[str]] = None
+    ) -> bool:
+        """
+        验证订阅响应（Crypto.com 格式）
+    
+        Args:
+            response: 订阅响应消息
+            expected_channels: 预期的频道列表（可选）
+    
+        Returns:
+            bool: 验证是否通过
+    
+        Raises:
+            AssertionError: 验证失败时抛出
+        """
+        try:
+            # 首先检查响应是否为空
+            assert response is not None, "订阅响应为空（None）"
+            assert isinstance(response, dict), f"订阅响应应该是字典类型（实际类型: {type(response)}）"
+    
+            # Crypto.com 响应格式验证
+            # 必需字段: id, method
+            assert "id" in response, "缺少 id 字段"
+>           assert "method" in response, "缺少 method 字段"
+E           AssertionError: 缺少 method 字段
+
+utils/ws_validators.py:58: AssertionError
