@@ -106,57 +106,7 @@ class WebSocketValidator:
             self.logger.error(f"响应内容: {response}")
             raise
 
-    def validate_subscription_response(
-            self,
-            response: Dict[str, Any],
-            expected_channels: Optional[List[str]] = None
-    ) -> bool:
-        """
-        验证订阅确认响应（Crypto.com 格式）
 
-        订阅确认格式（根据官方文档）:
-        成功: {"id": 1, "method": "subscribe", "code": 0}
-        失败: {"id": 1, "method": "subscribe", "code": 10004, "message": "..."}
-
-        注意：订阅确认响应不包含数据，数据会通过后续的推送消息发送
-
-        Args:
-            response: 订阅确认响应
-            expected_channels: 预期的频道列表（此参数在确认响应中不适用）
-
-        Returns:
-            bool: 验证是否通过
-        """
-        try:
-            assert response is not None, "订阅确认响应为空"
-            assert isinstance(response, dict), f"订阅确认响应应该是字典（实际: {type(response)}）"
-
-            self.logger.info(f"验证订阅确认响应: {response}")
-
-            # 必需字段
-            assert "id" in response, "缺少 id 字段"
-            assert "method" in response, "缺少 method 字段"
-            assert "code" in response, "缺少 code 字段"
-
-            request_id = response["id"]
-            method = response["method"]
-            code = response["code"]
-
-            assert method == "subscribe", f"method 应该是 'subscribe'（实际: {method}）"
-
-            self.logger.info(f"请求 ID: {request_id}, 方法: {method}, 响应码: {code}")
-
-            if code == 0:
-                self.logger.info("✅ 订阅确认成功（code=0）")
-                return True
-            else:
-                error_msg = response.get("message", "未知错误")
-                raise AssertionError(f"订阅失败: {error_msg} (code: {code})")
-
-        except AssertionError as e:
-            self.logger.error(f"❌ 订阅确认响应验证失败: {e}")
-            self.logger.error(f"响应内容: {response}")
-            raise
 
     def validate_book_push_message(
             self,
@@ -300,6 +250,48 @@ class WebSocketValidator:
             self.logger.error(f"❌ 推送消息验证失败: {e}")
             self.logger.error(f"消息内容: {message}")
             raise
+
+    def validate_orderbook_content(self,data):
+        """
+        验证订单簿业务内容：价格排序、买卖盘不倒挂
+        """
+
+        if 'bids' not in data and 'result' in data:
+            # 如果传入的是外层结构，深入挖掘
+            actual_data_list = data.get('result', {}).get('data', [])
+            if actual_data_list:
+                data = actual_data_list[0]
+            else:
+                raise ValueError("❌ 错误: 无法解析到订单簿核心数据层级")
+
+        bids = data.get('bids', [])  # 格式通常为 [[price, size], ...]
+        asks = data.get('asks', [])
+
+        if not bids or not asks:
+            raise ValueError("❌ 错误: 买盘或卖盘数据为空")
+
+        # 1. 提取买一和卖一
+        best_bid_price = float(bids[0][0])
+        best_ask_price = float(asks[0][0])
+
+        # 2. 核心校验：买一价必须小于卖一价
+        if best_bid_price >= best_ask_price:
+            raise AssertionError(
+                f"❌ 订单簿倒挂! 买一价({best_bid_price}) >= 卖一价({best_ask_price})"
+            )
+        print(f"✅ 价格交叉校验通过: {best_bid_price} < {best_ask_price}")
+
+        # 3. 进阶校验：买盘必须降序排列
+        bid_prices = [float(b[0]) for b in bids]
+        if bid_prices != sorted(bid_prices, reverse=True):
+            raise AssertionError("❌ 买盘价格未按降序(从高到低)排列")
+
+        # 4. 进阶校验：卖盘必须升序排列
+        ask_prices = [float(a[0]) for a in asks]
+        if ask_prices != sorted(ask_prices):
+            raise AssertionError("❌ 卖盘价格未按升序(从低到高)排列")
+
+        return True
 
     def validate_orderbook_data(
             self,

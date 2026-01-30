@@ -1,0 +1,70 @@
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - Test Started: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ▶️  Starting test: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔧 初始化 WebSocket 客户端
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - WebSocket URL: wss://stream.crypto.com/exchange/v1/market
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 超时设置: 30秒
+2026-01-30 22:57:46 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 正在连接 WebSocket...
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ WebSocket 连接成功
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 连接状态验证: True
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 测试用例: TC_BOOK_001
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 描述: 订阅订单簿数据 - BTC_USDT - 深度 10
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 请求参数: {'instrument_name': 'BTCUSD-PERP', 'depth': 10}
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - WebSocket URL: wss://stream.crypto.com/exchange/v1/market
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 超时时间: 30秒
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 连接状态: True
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📢 发送订阅请求: book.BTCUSD-PERP.10
+2026-01-30 22:57:47 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 订阅确认: {'id': 1, 'method': 'subscribe', 'code': 0, 'channel': 'book.BTCUSD-PERP.10'}
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 订阅确认验证通过
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ⏳ 开始连续收集 5 条订单簿数据，最大允许 40 秒...
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔍 尝试接收 (已耗时: 0.00s) | 已收集: 0/5
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📨 收到消息: Method='subscribe'
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 成功捕获 1 条目标频道数据 (Total: 1)
+2026-01-30 22:57:48 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔍 尝试接收 (已耗时: 0.39s) | 已收集: 1/5
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📨 收到消息: Method='subscribe'
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 成功捕获 1 条目标频道数据 (Total: 2)
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔍 尝试接收 (已耗时: 0.88s) | 已收集: 2/5
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📨 收到消息: Method='subscribe'
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 成功捕获 1 条目标频道数据 (Total: 3)
+2026-01-30 22:57:49 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔍 尝试接收 (已耗时: 1.62s) | 已收集: 3/5
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📨 收到消息: Method='subscribe'
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 成功捕获 1 条目标频道数据 (Total: 4)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🔍 尝试接收 (已耗时: 1.90s) | 已收集: 4/5
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📨 收到消息: Method='subscribe'
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ 成功捕获 1 条目标频道数据 (Total: 5)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🎉 成功收集到 5 条数据，用时 2.41s。
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 验证订单簿业务内容：价格排序、买卖盘不倒挂
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 1 业务内容校验通过(价格排序、买卖盘不倒挂)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 1 | 时间戳: 1769785068484 | 买/卖: 10/10
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 验证订单簿业务内容：价格排序、买卖盘不倒挂
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 2 业务内容校验通过(价格排序、买卖盘不倒挂)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 2 | 时间戳: 1769785068991 | 买/卖: 10/10
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 验证订单簿业务内容：价格排序、买卖盘不倒挂
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 3 业务内容校验通过(价格排序、买卖盘不倒挂)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 3 | 时间戳: 1769785069498 | 买/卖: 10/10
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 验证订单簿业务内容：价格排序、买卖盘不倒挂
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 4 业务内容校验通过(价格排序、买卖盘不倒挂)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 4 | 时间戳: 1769785070005 | 买/卖: 10/10
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 验证订单簿业务内容：价格排序、买卖盘不倒挂
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 5 业务内容校验通过(价格排序、买卖盘不倒挂)
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 📸 快照 5 | 时间戳: 1769785070511 | 买/卖: 10/10
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 🎉 测试用例 TC_BOOK_001 成功收集并验证 5 条数据
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:50 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - 正在断开 WebSocket 连接...
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ WebSocket 已断开
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ================================================================================
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ✅ Test PASSED: test_book_001_subscribe_btc_depth_10[TC_BOOK_001] (Duration: 7.00s)
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - Test Finished: test_book_001_subscribe_btc_depth_10[TC_BOOK_001]
+2026-01-30 22:57:53 - test_book_001_subscribe_btc_depth_10[TC_BOOK_001] - INFO - ============================================================

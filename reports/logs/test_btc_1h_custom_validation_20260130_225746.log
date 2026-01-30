@@ -1,0 +1,33 @@
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Test Started: test_btc_1h_custom_validation
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ▶️  Starting test: test_btc_1h_custom_validation
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - [TC_POS_001] Testing: 获取 BTC 1小时 K线数据
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Priority: P0
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Tags: smoke, basic
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Request params: {'instrument_name': 'BTCUSD-PERP', 'timeframe': '1h'}
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Response status: 200
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Response code: 0
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 状态码验证通过: 200 == 200
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ HTTP 状态码验证通过: 200
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 响应码验证通过: 0
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据存在，共 25 条记录
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ K线数据结构验证通过（验证了前 3 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ K线价格逻辑验证通过（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 时间戳顺序验证通过（升序）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 价格范围验证通过: 1000 ~ 200000（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 时间间隔验证通过: 100.0% 符合预期间隔 3600000ms
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ K线数据综合验证全部通过
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据完整性验证通过：无缺失字段（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据完整性验证通过：无空值（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据完整性验证通过：无重复时间戳（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据一致性验证通过：所有数据字段结构一致（验证了 25 条数据）
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✓ 数据完整性综合验证全部通过
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✅ [TC_POS_001] All validations passed
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================
+
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ✅ Test PASSED: test_btc_1h_custom_validation (Duration: 0.37s)
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - Test Finished: test_btc_1h_custom_validation
+2026-01-30 22:57:46 - test_btc_1h_custom_validation - INFO - ============================================================

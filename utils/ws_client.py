@@ -4,9 +4,26 @@ WebSocket 客户端（适配 Crypto.com）
 """
 import asyncio
 import json
-import websockets
-from typing import Optional, Dict, Any, List
 import logging
+from typing import Optional, Dict, Any, List
+from python_socks.async_.asyncio import Proxy
+import websockets
+import sys
+import os
+
+
+# 打印搜索路径，确认 venv 路径在其中
+print("Python Path:", sys.path)
+
+try:
+    from python_socks.asyncio import Proxy
+    print("✅ 成功在代码中导入 Proxy")
+except ImportError as e:
+    print(f"❌ 导入失败，错误详情: {e}")
+    # 尝试列出 python_socks 目录下的内容，看看包结构
+    import python_socks
+    print(f"包文件路径: {python_socks.__file__}")
+    print(f"包内成员: {dir(python_socks)}")
 
 
 class WebSocketClient:
@@ -51,12 +68,22 @@ class WebSocketClient:
             self.logger.info(f"正在连接 WebSocket: {self.ws_url}")
             self.logger.info(f"超时设置: {self.timeout}秒")
 
+            # 1. 创建代理对象
+            proxy = Proxy.from_url("http://127.0.0.1:7890")
+
+            # 2. 手动通过代理连接到目标主机的 443 端口
+            # stream.crypto.com 这里的域名要和 ws_url 的主机名一致
+            sock = await proxy.connect(dest_host="stream.crypto.com", dest_port=443,
+                timeout=self.timeout)
+
             self.ws = await asyncio.wait_for(
                 websockets.connect(
                     self.ws_url,
+                    sock=sock,  # 关键点：直接使用代理握手后的 socket
+                    server_hostname="stream.crypto.com",
                     ping_interval=20,
                     ping_timeout=10,
-                    close_timeout=10
+                    close_timeout=10,
                 ),
                 timeout=self.timeout
             )
@@ -203,6 +230,117 @@ class WebSocketClient:
             self.logger.error(traceback.format_exc())
             return None
 
+    # async def subscribe(
+    #         self,
+    #         channels: List[str],
+    #         timeout: Optional[int] = None
+    # ) -> Optional[Dict[str, Any]]:
+    #     """
+    #     订阅频道（Crypto.com Exchange 格式）
+    #
+    #     根据官方文档，订阅成功后会收到：
+    #     1. 订阅确认: {"id": 1, "method": "subscribe", "code": 0}
+    #     2. 数据推送: {"method": "subscribe", "result": {...}, "code": 0}
+    #
+    #     Args:
+    #         channels: 要订阅的频道列表
+    #         timeout: 超时时间（秒）
+    #
+    #     Returns:
+    #         Dict: 订阅确认响应（仅包含 id, method, code）
+    #     """
+    #     if not await self.is_connected():
+    #         self.logger.error("❌ WebSocket 未连接，无法订阅")
+    #         return None
+    #
+    #     request_id = self._get_next_id()
+    #
+    #     message = {
+    #         "id": request_id,
+    #         "method": "subscribe",
+    #         "params": {
+    #             "channels": channels
+    #         }
+    #     }
+    #
+    #     self.logger.info("=" * 60)
+    #     self.logger.info(f"📢 开始订阅")
+    #     self.logger.info(f"频道: {channels}")
+    #     self.logger.info(f"请求 ID: {request_id}")
+    #     self.logger.info("=" * 60)
+    #
+    #     # 发送订阅请求
+    #     if not await self.send_message(message):
+    #         self.logger.error("❌ 发送订阅请求失败")
+    #         return None
+    #
+    #     # 等待订阅确认响应
+    #     self.logger.info("⏳ 等待订阅确认响应...")
+    #     timeout_value = timeout if timeout is not None else self.timeout
+    #
+    #     try:
+    #         response = await self.receive_message(timeout=timeout_value)
+    #
+    #         if response is None:
+    #             self.logger.error("❌ 未收到订阅响应")
+    #             return None
+    #
+    #         # 检查是否是订阅确认响应（匹配 request_id）
+    #         if response.get("id") == request_id and response.get("method") == "subscribe":
+    #             code = response.get("code", -1)
+    #
+    #             if code == 0:
+    #                 self.logger.info("=" * 60)
+    #                 self.logger.info("✅ 订阅确认成功")
+    #                 self.logger.info("=" * 60)
+    #                 # 处理消息接收
+    #                 while True:
+    #                     message = await self.receive_message(timeout=10)
+    #
+    #                     if message is None:
+    #                         continue  # 如果没有消息，继续循环
+    #
+    #                     # 检查是否是心跳消息
+    #                     if "method" in message and message["method"] == "public/heartbeat":
+    #                         await self.send_message({
+    #                             "id": message.get("id"),
+    #                             "method": "public/respond-heartbeat"
+    #                         })
+    #                         continue
+    #
+    #                     # 检查是否是订单簿数据推送
+    #                     if "result" in message:
+    #                         result = message["result"]
+    #                         if "data" in result:
+    #                             # 处理订单簿数据
+    #                             self.handle_order_book_data(result["data"])
+    #                 return response
+    #             else:
+    #                 error_msg = response.get("message", "未知错误")
+    #                 self.logger.error(f"❌ 订阅失败: {error_msg} (code: {code})")
+    #                 return response
+    #         else:
+    #             self.logger.warning(f"⚠️  收到的不是预期的订阅确认响应: {response}")
+    #             return response
+    #
+    #     except Exception as e:
+    #         self.logger.error(f"❌ 订阅过程发生错误: {e}")
+    #         import traceback
+    #         self.logger.error(traceback.format_exc())
+    #         return None
+    #
+    # def handle_order_book_data(self, data):
+    #     for entry in data:
+    #         bids = entry.get("bids", [])
+    #         asks = entry.get("asks", [])
+    #         timestamp = entry.get("t", None)
+    #
+    #         # 打印或处理 bids 和 asks
+    #         print("Bids:", bids)
+    #         print("Asks:", asks)
+    #         print("Timestamp:", timestamp)
+    #         if not bids and not asks:
+    #             print("⚠️ 当前没有可用的买单和卖单数据")
     async def subscribe(
             self,
             channels: List[str],
@@ -211,23 +349,14 @@ class WebSocketClient:
         """
         订阅频道（Crypto.com Exchange 格式）
 
-        根据官方文档，订阅成功后会收到：
-        1. 订阅确认: {"id": 1, "method": "subscribe", "code": 0}
-        2. 数据推送: {"method": "subscribe", "result": {...}, "code": 0}
-
-        Args:
-            channels: 要订阅的频道列表
-            timeout: 超时时间（秒）
-
-        Returns:
-            Dict: 订阅确认响应（仅包含 id, method, code）
+        仅发送订阅请求，并等待**一个**订阅确认响应返回。
+        数据推送将在后续的 receive_message 调用中获取。
         """
         if not await self.is_connected():
             self.logger.error("❌ WebSocket 未连接，无法订阅")
             return None
 
         request_id = self._get_next_id()
-
         message = {
             "id": request_id,
             "method": "subscribe",
@@ -247,15 +376,16 @@ class WebSocketClient:
             self.logger.error("❌ 发送订阅请求失败")
             return None
 
-        # 等待订阅确认响应
+        # 仅等待**一个**订阅确认响应
         self.logger.info("⏳ 等待订阅确认响应...")
         timeout_value = timeout if timeout is not None else self.timeout
 
         try:
+            # 仅接收一次消息
             response = await self.receive_message(timeout=timeout_value)
 
             if response is None:
-                self.logger.error("❌ 未收到订阅响应")
+                self.logger.error("❌ 未收到订阅响应或超时")
                 return None
 
             # 检查是否是订阅确认响应（匹配 request_id）
@@ -264,56 +394,20 @@ class WebSocketClient:
 
                 if code == 0:
                     self.logger.info("=" * 60)
-                    self.logger.info("✅ 订阅确认成功")
+                    self.logger.info("✅ 订阅确认成功并返回")
                     self.logger.info("=" * 60)
-                    # 处理消息接收
-                    while True:
-                        message = await self.receive_message(timeout=10)
+                    return response # ⭐ 成功返回确认消息
 
-                        if message is None:
-                            continue  # 如果没有消息，继续循环
-
-                        # 检查是否是心跳消息
-                        if "method" in message and message["method"] == "public/heartbeat":
-                            await self.send_message({
-                                "id": message.get("id"),
-                                "method": "public/respond-heartbeat"
-                            })
-                            continue
-
-                        # 检查是否是订单簿数据推送
-                        if "result" in message:
-                            result = message["result"]
-                            if "data" in result:
-                                # 处理订单簿数据
-                                self.handle_order_book_data(result["data"])
-                    return response
                 else:
-                    error_msg = response.get("message", "未知错误")
-                    self.logger.error(f"❌ 订阅失败: {error_msg} (code: {code})")
-                    return response
+                    self.logger.error(f"❌ 订阅失败，错误码: {code}")
+                    return None
             else:
-                self.logger.warning(f"⚠️  收到的不是预期的订阅确认响应: {response}")
-                return response
+                self.logger.warning(f"⚠️ 收到非预期的消息作为订阅响应: {response}")
+                return None
 
         except Exception as e:
-            self.logger.error(f"❌ 订阅过程发生错误: {e}")
-            import traceback
-            self.logger.error(traceback.format_exc())
+            self.logger.error(f"❌ 等待订阅确认时发生错误: {e}")
             return None
-
-    def handle_order_book_data(self, data):
-        for entry in data:
-            bids = entry.get("bids", [])
-            asks = entry.get("asks", [])
-            timestamp = entry.get("t", None)
-
-            # 打印或处理 bids 和 asks
-            print("Bids:", bids)
-            print("Asks:", asks)
-            print("Timestamp:", timestamp)
-            if not bids and not asks:
-                print("⚠️ 当前没有可用的买单和卖单数据")
 
     async def unsubscribe(
             self,

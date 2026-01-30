@@ -1,0 +1,21 @@
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Test Started: test_count_custom_validation
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ▶️  Starting test: test_count_custom_validation
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - [TC_POS_003] Testing: 获取指定数量的 K线（count=50）
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Priority: P0
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Tags: smoke, count
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Request params: {'instrument_name': 'ETHUSD-PERP', 'timeframe': '1h', 'count': 50}
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Response status: 200
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Response code: 0
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✓ 状态码验证通过: 200 == 200
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✓ HTTP 状态码验证通过: 200
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✓ 响应码验证通过: 0
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✓ 数据存在，共 50 条记录
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - 请求参数 count = 50
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✓ 数据数量验证通过: 50 = 50
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ✅ Test PASSED: test_count_custom_validation (Duration: 0.39s)
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ============================================================
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - Test Finished: test_count_custom_validation
+2026-01-30 22:57:46 - test_count_custom_validation - INFO - ============================================================
