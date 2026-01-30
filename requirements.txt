@@ -1,17 +1,19 @@
-# requirements.txt
-
-# 核心依赖
-requests==2.32.0
-pytest==7.4.0
-
+# 核心依赖 (REST API)
+requests==2.31.0  # 来自 pip freeze 列表
+pytest==7.4.3
 
 # 新增 WebSocket 和异步支持
-websockets>=12.0
-pytest-asyncio>=0.21.0
-aiohttp>=3.9.0
-
-# 数据处理
-python-dateutil==2.8.2
+websockets==10.4
+python-socks==1.2.4
+pytest-asyncio==0.21.2
 
 # 日志和报告
 allure-pytest==2.13.2
+
+# 其他必要的子依赖项（保留，以防万一核心包无法自动拉取）
+attrs==24.2.0
+certifi==2026.1.4
+charset-normalizer==3.4.4
+idna==3.10
+urllib3==2.0.7
+urllib3==2.0.7

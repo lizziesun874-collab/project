@@ -28,7 +28,7 @@ class OrderbookCases:
             "description": "订阅订单簿数据 - ETH_USDT - 深度 50",
             "channel_type": "orderbook",
             "params": {
-                "instrument_name": "ETH_USDT",
+                "instrument_name": "ETHUSD-PERP",
                 "depth": 50
             },
             "expected": {
