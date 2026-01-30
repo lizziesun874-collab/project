@@ -1,0 +1,17 @@
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - Test Started: test_all_negative_cases[TC_NEG_027]
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ▶️  Starting test: test_all_negative_cases[TC_NEG_027]
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - [TC_NEG_027] Testing: 同时使用 count、startTime 和 endTime（可能冲突）
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - Request params: {'instrument_name': 'BTCUSD-PERP', 'timeframe': '1h', 'count': 2000}
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - Response status: 200
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - Response code: 0
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ✓ 状态码验证通过: 200 in [500, 400, 200]
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ✅ [TC_NEG_027] All validations passed
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
+
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ✅ Test PASSED: test_all_negative_cases[TC_NEG_027] (Duration: 0.16s)
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - Test Finished: test_all_negative_cases[TC_NEG_027]
+2026-01-30 22:57:40 - test_all_negative_cases[TC_NEG_027] - INFO - ============================================================
