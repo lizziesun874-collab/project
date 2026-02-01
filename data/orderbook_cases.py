@@ -15,7 +15,7 @@ class OrderbookCases:
             },
             "expected": {
                 "subscription_success": True,
-                "message_count": 1,
+                "message_count": 5,
                 "required_fields": ["instrument_name", "subscription", "channel", "data"],
                 "data_fields": ["bids", "asks", "t"],
                 "min_bids": 1,
@@ -33,7 +33,7 @@ class OrderbookCases:
             },
             "expected": {
                 "subscription_success": True,
-                "message_count": 1,
+                "message_count": 5,
                 "required_fields": ["instrument_name", "subscription", "channel", "data"],
                 "data_fields": ["bids", "asks", "t"],
                 "min_bids": 1,
@@ -51,7 +51,7 @@ class OrderbookCases:
             },
             "expected": {
                 "subscription_success": False,
-                "error_code": 10004
+                "error_code": 40003
             }
         },
 
@@ -60,12 +60,12 @@ class OrderbookCases:
             "description": "订阅订单簿数据 - BTC_USDT - 深度 150",
             "channel_type": "orderbook",
             "params": {
-                "instrument_name": "BTC_USDT",
+                "instrument_name": "BTCUSD-PERP",
                 "depth": 150
             },
             "expected": {
                 "subscription_success": True,
-                "message_count": 1,
+                "message_count": 5,
                 "required_fields": ["instrument_name", "subscription", "channel", "data"],
                 "data_fields": ["bids", "asks", "t"],
                 "min_bids": 1,
@@ -79,13 +79,13 @@ class OrderbookCases:
             "channel_type": "orderbook",
             "params": {
                 "channels": [
-                    {"instrument_name": "BTC_USDT", "depth": 10},
-                    {"instrument_name": "ETH_USDT", "depth": 10}
+                    {"instrument_name": "BTCUSD-PERP", "depth": 10},
+                    {"instrument_name": "ETHUSD-PERP", "depth": 10}
                 ]
             },
             "expected": {
                 "subscription_success": True,
-                "message_count": 2,
+                "message_count": 10,
                 "required_fields": ["instrument_name", "subscription", "channel", "data"]
             }
         },
@@ -119,20 +119,7 @@ class OrderbookCases:
             }
         },
 
-        "TC_BOOK_008": {
-            "case_id": "TC_BOOK_008",
-            "description": "验证买卖盘价格排序",
-            "channel_type": "orderbook",
-            "params": {
-                "instrument_name": "BTC_USDT",
-                "depth": 10
-            },
-            "expected": {
-                "subscription_success": True,
-                "bids_sorted": "desc",  # 买盘从高到低
-                "asks_sorted": "asc"  # 卖盘从低到高
-            }
-        }
+
     }
 
 

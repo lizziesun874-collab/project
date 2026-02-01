@@ -29,6 +29,7 @@ class Config:
     }
 
     # WebSocket 配置（新增）
+    #WS_URL = "wss://uat-stream.3ona.co/exchange/v1/market"
     WS_URL = "wss://stream.crypto.com/exchange/v1/market"
     REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "30"))
     WS_TIMEOUT = 30

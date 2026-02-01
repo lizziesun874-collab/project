@@ -399,8 +399,8 @@ class WebSocketClient:
                     return response # ⭐ 成功返回确认消息
 
                 else:
-                    self.logger.error(f"❌ 订阅失败，错误码: {code}")
-                    return None
+                    self.logger.warning(f"订阅响应包含错误码: {response.get('code')}")
+                    return response
             else:
                 self.logger.warning(f"⚠️ 收到非预期的消息作为订阅响应: {response}")
                 return None
@@ -415,7 +415,7 @@ class WebSocketClient:
             timeout: Optional[int] = None
     ) -> Optional[Dict[str, Any]]:
         """
-        取消订阅频道
+        取消订阅频道un
 
         Args:
             channels: 要取消订阅的频道列表
