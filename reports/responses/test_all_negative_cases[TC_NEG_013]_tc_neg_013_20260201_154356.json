@@ -1,0 +1,25 @@
+{
+  "response": {
+    "code": 50001,
+    "message": "Internal error"
+  },
+  "status_code": 500,
+  "response_time": 394.7727680206299,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:55 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "cloudflare",
+    "CF-Ray": "9c6fd2152a6f882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTCUSD-PERP&timeframe=1h&end_ts=2024-01-01",
+  "request_params": {
+    "instrument_name": "BTCUSD-PERP",
+    "timeframe": "1h",
+    "end_ts": "2024-01-01"
+  }
+}

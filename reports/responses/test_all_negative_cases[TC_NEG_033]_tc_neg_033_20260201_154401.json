@@ -1,0 +1,24 @@
+{
+  "response": {
+    "code": 40003,
+    "message": "Invalid request"
+  },
+  "status_code": 400,
+  "response_time": 183.6416721343994,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:44:01 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "cloudflare",
+    "CF-Ray": "9c6fd2393814882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTCUSD-PERP&timeframe=1H",
+  "request_params": {
+    "instrument_name": "BTCUSD-PERP",
+    "timeframe": "1H"
+  }
+}

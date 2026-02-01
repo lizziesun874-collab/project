@@ -263,32 +263,68 @@ def test_logger(request):
     logger.removeHandler(console_handler)
 
 
+#@pytest.fixture(scope="function")
+# def save_response(request):
+#     """
+#     保存响应数据 Fixture（函数级别）
+#
+#     提供保存 API 响应的便捷方法
+#
+#     Returns:
+#         function: 保存响应的函数
+#     """
+#
+#     def _save(response_data: Dict[str, Any], suffix: str = ""):
+#         """
+#         保存响应数据
+#
+#         Args:
+#             response_响应数据
+#             suffix: 文件名后缀
+#         """
+#         test_name = request.node.name
+#         if suffix:
+#             test_name = f"{test_name}_{suffix}"
+#
+#         return save_response_to_file(
+#             response_data,
+#             test_name,
+#             directory="reports/responses"
+#         )
+#
+#     return _save
+
 @pytest.fixture(scope="function")
 def save_response(request):
     """
-    保存响应数据 Fixture（函数级别）
-
-    提供保存 API 响应的便捷方法
-
-    Returns:
-        function: 保存响应的函数
+    保存响应数据 Fixture (兼容 API 和 WebSocket)
     """
 
-    def _save(response_data: Dict[str, Any], suffix: str = ""):
+    def _save(data: Dict[str, Any], suffix: str = "", **kwargs):
         """
-        保存响应数据
-
         Args:
-            response_响应数据
-            suffix: 文件名后缀
+            data: 要保存的数据
+            suffix: 原始后缀
+            **kwargs: 接收 case_id, step 等扩展字段
         """
+        # 获取基础文件名（测试函数名）
         test_name = request.node.name
-        if suffix:
-            test_name = f"{test_name}_{suffix}"
 
+        # 扩展文件名逻辑：如果传入了 case_id 或 step，拼接到文件名中
+        case_id = kwargs.get("case_id", "")
+        step = kwargs.get("step", "")
+
+        parts = [test_name]
+        if case_id: parts.append(str(case_id))
+        if step: parts.append(str(step))
+        if suffix: parts.append(suffix)
+
+        final_filename = "_".join(parts)
+
+        # 调用你现有的保存函数
         return save_response_to_file(
-            response_data,
-            test_name,
+            data,
+            final_filename,
             directory="reports/responses"
         )
 
@@ -389,13 +425,15 @@ def pytest_collection_modifyitems(config, items):
     for item in items:
         # 根据测试文件名添加 feature 标签
         if "positive" in item.nodeid:
-            item.add_marker(pytest.mark.allure_label("feature", "Positive Tests"))
+            item.add_marker(pytest.mark.allure_label(item.nodeid, label_type="feature", value="Positive Tests"))
         elif "negative" in item.nodeid:
-            item.add_marker(pytest.mark.allure_label("feature", "Negative Tests"))
+            item.add_marker(pytest.mark.allure_label(item.nodeid, label_type="feature", value="Negative Tests"))
         elif "boundary" in item.nodeid:
-            item.add_marker(pytest.mark.allure_label("feature", "Boundary Tests"))
+            #item.add_marker(pytest.mark.allure_label("feature", "Boundary Tests"))
+            item.add_marker(pytest.mark.allure_label(item.nodeid, label_type="feature", value="Boundary Tests"))
         elif "performance" in item.nodeid:
-            item.add_marker(pytest.mark.allure_label("feature", "Performance Tests"))
+            #item.add_marker(pytest.mark.allure_label("feature", "Performance Tests"))
+            item.add_marker(pytest.mark.allure_label(item.nodeid, label_type="feature", value="Performance Tests"))
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

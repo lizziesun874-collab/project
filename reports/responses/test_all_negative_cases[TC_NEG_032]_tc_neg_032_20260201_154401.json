@@ -1,0 +1,24 @@
+{
+  "response": {
+    "code": 40004,
+    "message": "Invalid instrument_name"
+  },
+  "status_code": 400,
+  "response_time": 150.78401565551758,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:44:01 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "cloudflare",
+    "CF-Ray": "9c6fd2383db0882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=btcusd-perp",
+  "request_params": {
+    "instrument_name": "btcusd-perp",
+    "timeframe": null
+  }
+}

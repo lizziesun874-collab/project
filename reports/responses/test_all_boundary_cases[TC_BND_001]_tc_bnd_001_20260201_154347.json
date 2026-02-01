@@ -1,0 +1,42 @@
+{
+  "response": {
+    "id": -1,
+    "method": "public/get-candlestick",
+    "code": 0,
+    "result": {
+      "interval": "1h",
+      "data": [
+        {
+          "o": "78293.01",
+          "h": "78723.99",
+          "l": "77919.44",
+          "c": "78545.41",
+          "v": "177.42228",
+          "t": 1769929200000
+        }
+      ],
+      "instrument_name": "BTC_USDT"
+    }
+  },
+  "status_code": 200,
+  "response_time": 6115.115642547607,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:46 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "CF-Ray": "9c6fd1dcce32882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "Set-Cookie": "__cf_bm=myYySWubyHyiME0f2vKVMs3QzRNV_Vwa9u1pxysQaN8-1769931826-1.0.1.1-umFEylKBRxmuF9ZGOktmPbLKjOxjdsfYVWzPhxrwaMlmMsdUH_vQk1nprYi6R.OW5MdW7qKgYn0zzNHpk9_FRedzWEPm14HYOoIKWBeug6c; path=/; expires=Sun, 01-Feb-26 08:13:46 GMT; domain=.crypto.com; HttpOnly; Secure; SameSite=None, _cfuvid=2VZ0xzsm6WBVMkrmVMb6Fxi4nUs6rkQe2RC53zriv3o-1769931826823-0.0.1.1-604800000; path=/; domain=.crypto.com; HttpOnly; Secure; SameSite=None",
+    "Server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTC_USDT&timeframe=1h&count=1",
+  "request_params": {
+    "instrument_name": "BTC_USDT",
+    "timeframe": "1h",
+    "count": 1
+  }
+}

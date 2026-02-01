@@ -1,0 +1,24 @@
+{
+  "response": {
+    "code": 40004,
+    "message": "Invalid instrument_name"
+  },
+  "status_code": 400,
+  "response_time": 114.36891555786133,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:54 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "cloudflare",
+    "CF-Ray": "9c6fd20e7c5e882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=&timeframe=1h",
+  "request_params": {
+    "instrument_name": "",
+    "timeframe": "1h"
+  }
+}

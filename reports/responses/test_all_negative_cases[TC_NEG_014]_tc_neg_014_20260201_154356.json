@@ -1,0 +1,27 @@
+{
+  "response": {
+    "error": "Invalid JSON response"
+  },
+  "status_code": 403,
+  "response_time": 206.10308647155762,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:56 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "same-origin",
+    "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+    "Expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "CF-RAY": "9c6fd217bff1882e-HKG",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTCUSD-PERP%27%3B+DROP+TABLE+users%3B+--&timeframe=1h",
+  "request_params": {
+    "instrument_name": "BTCUSD-PERP'; DROP TABLE users; --",
+    "timeframe": "1h"
+  }
+}

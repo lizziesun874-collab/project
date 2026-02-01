@@ -1,0 +1,89 @@
+{
+  "response": {
+    "id": -1,
+    "method": "public/get-candlestick",
+    "code": 0,
+    "result": {
+      "interval": "4h",
+      "data": [
+        {
+          "o": "83889.1",
+          "h": "84020.5",
+          "l": "83265.7",
+          "c": "83418.7",
+          "v": "766.2898",
+          "t": 1769832000000
+        },
+        {
+          "o": "83415.0",
+          "h": "83507.1",
+          "l": "82444.1",
+          "c": "82888.3",
+          "v": "2337.5105",
+          "t": 1769846400000
+        },
+        {
+          "o": "82886.1",
+          "h": "83021.3",
+          "l": "80706.9",
+          "c": "81173.1",
+          "v": "5340.4575",
+          "t": 1769860800000
+        },
+        {
+          "o": "81172.8",
+          "h": "82084.1",
+          "l": "75548.4",
+          "c": "77651.8",
+          "v": "13652.8134",
+          "t": 1769875200000
+        },
+        {
+          "o": "77647.1",
+          "h": "79151.2",
+          "l": "76980.0",
+          "c": "78646.4",
+          "v": "6615.8586",
+          "t": 1769889600000
+        },
+        {
+          "o": "78646.6",
+          "h": "79349.3",
+          "l": "78209.8",
+          "c": "78784.8",
+          "v": "4901.7687",
+          "t": 1769904000000
+        },
+        {
+          "o": "78783.2",
+          "h": "79039.0",
+          "l": "77889.5",
+          "c": "78492.6",
+          "v": "1961.9291",
+          "t": 1769918400000
+        }
+      ],
+      "instrument_name": "BTCUSD-PERP"
+    }
+  },
+  "status_code": 200,
+  "response_time": 137.13908195495605,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:44:03 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "CF-Ray": "9c6fd24509ca882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "Server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTCUSD-PERP&timeframe=4h&start_ts=1769845420957",
+  "request_params": {
+    "instrument_name": "BTCUSD-PERP",
+    "timeframe": "4h",
+    "start_ts": 1769845420957
+  }
+}

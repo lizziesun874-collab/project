@@ -1,0 +1,17 @@
+2026-02-01 15:43:52 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================
+2026-02-01 15:43:52 - test_all_negative_cases[TC_NEG_001] - INFO - Test Started: test_all_negative_cases[TC_NEG_001]
+2026-02-01 15:43:52 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================
+2026-02-01 15:43:52 - test_all_negative_cases[TC_NEG_001] - INFO - ▶️  Starting test: test_all_negative_cases[TC_NEG_001]
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - [TC_NEG_001] Testing: 缺少必填参数 instrument_name
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - Request params: {'timeframe': '1h'}
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - Response status: 400
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - Response code: 40003
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ✓ 状态码验证通过: 400 in [400]
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ✅ [TC_NEG_001] All validations passed
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================
+
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ✅ Test PASSED: test_all_negative_cases[TC_NEG_001] (Duration: 0.12s)
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - Test Finished: test_all_negative_cases[TC_NEG_001]
+2026-02-01 15:43:53 - test_all_negative_cases[TC_NEG_001] - INFO - ============================================================

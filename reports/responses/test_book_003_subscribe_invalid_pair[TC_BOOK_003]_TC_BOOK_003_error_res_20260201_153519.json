@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "method": "subscribe",
+  "code": 40003,
+  "channel": "book.INVALID_PAIR.10",
+  "message": "Unknown symbol"
+}

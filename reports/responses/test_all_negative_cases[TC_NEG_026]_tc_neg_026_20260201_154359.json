@@ -1,0 +1,115 @@
+{
+  "response": {
+    "id": -1,
+    "method": "public/get-candlestick",
+    "code": 0,
+    "result": {
+      "interval": "1h",
+      "data": [
+        {
+          "o": "78213.6",
+          "h": "78406.6",
+          "l": "77900.0",
+          "c": "78077.7",
+          "v": "646.8824",
+          "t": 1769896800000
+        },
+        {
+          "o": "78064.7",
+          "h": "79151.2",
+          "l": "77972.1",
+          "c": "78646.4",
+          "v": "1472.0454",
+          "t": 1769900400000
+        },
+        {
+          "o": "78646.6",
+          "h": "79349.3",
+          "l": "78551.9",
+          "c": "78817.6",
+          "v": "1839.0043",
+          "t": 1769904000000
+        },
+        {
+          "o": "78812.9",
+          "h": "78865.7",
+          "l": "78209.8",
+          "c": "78445.2",
+          "v": "1398.0292",
+          "t": 1769907600000
+        },
+        {
+          "o": "78448.8",
+          "h": "78977.0",
+          "l": "78283.9",
+          "c": "78807.2",
+          "v": "1184.1124",
+          "t": 1769911200000
+        },
+        {
+          "o": "78807.2",
+          "h": "78927.5",
+          "l": "78582.3",
+          "c": "78784.8",
+          "v": "480.6228",
+          "t": 1769914800000
+        },
+        {
+          "o": "78783.2",
+          "h": "79039.0",
+          "l": "78635.5",
+          "c": "78889.4",
+          "v": "425.4283",
+          "t": 1769918400000
+        },
+        {
+          "o": "78894.0",
+          "h": "78924.0",
+          "l": "78431.1",
+          "c": "78532.8",
+          "v": "477.9584",
+          "t": 1769922000000
+        },
+        {
+          "o": "78535.5",
+          "h": "78746.0",
+          "l": "78181.0",
+          "c": "78214.8",
+          "v": "518.1036",
+          "t": 1769925600000
+        },
+        {
+          "o": "78218.4",
+          "h": "78655.2",
+          "l": "77889.5",
+          "c": "78494.3",
+          "v": "540.0677",
+          "t": 1769929200000
+        }
+      ],
+      "instrument_name": "BTCUSD-PERP"
+    }
+  },
+  "status_code": 200,
+  "response_time": 211.89188957214355,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:59 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "CF-Ray": "9c6fd22e787c882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "Server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTCUSD-PERP&timeframe=1h&count=10&startTime=1704067200000&endTime=1704153600000",
+  "request_params": {
+    "instrument_name": "BTCUSD-PERP",
+    "timeframe": "1h",
+    "count": 10,
+    "startTime": 1704067200000,
+    "endTime": 1704153600000
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "response": {
+    "error": "Invalid JSON response"
+  },
+  "status_code": 403,
+  "response_time": 76.96914672851562,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:59 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "same-origin",
+    "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+    "Expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "CF-RAY": "9c6fd229cead882e-HKG",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTC_%00&timeframe=1h",
+  "request_params": {
+    "instrument_name": "BTC_\u0000",
+    "timeframe": "1h"
+  }
+}
