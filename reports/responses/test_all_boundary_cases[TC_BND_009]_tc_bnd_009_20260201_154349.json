@@ -1,0 +1,33 @@
+{
+  "response": {
+    "id": -1,
+    "method": "public/get-candlestick",
+    "code": 0,
+    "result": {
+      "interval": "1h",
+      "data": [],
+      "instrument_name": "BTC_USDT"
+    }
+  },
+  "status_code": 200,
+  "response_time": 304.9600124359131,
+  "headers": {
+    "Date": "Sun, 01 Feb 2026 07:43:49 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "CF-Ray": "9c6fd1eb6d2b882e-HKG",
+    "CF-Cache-Status": "DYNAMIC",
+    "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding",
+    "Server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "url": "https://api.crypto.com/exchange/v1/public/get-candlestick?instrument_name=BTC_USDT&timeframe=1h&start_ts=1770018220958&end_ts=1770104620958",
+  "request_params": {
+    "instrument_name": "BTC_USDT",
+    "timeframe": "1h",
+    "start_ts": 1770018220958,
+    "end_ts": 1770104620958
+  }
+}
