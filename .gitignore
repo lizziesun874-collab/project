@@ -1,1 +1,6 @@
-venv/
+
+# 或者只忽略 Allure 特定目录，如果你想保留 reports 目录本身
+/reports/allure-results
+/reports/failures
+/allure-results
+
